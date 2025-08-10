@@ -1,8 +1,6 @@
 package com.example.easycash.auth;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,38 +10,17 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.easycash.R;
 
-public class LoginActivity extends AppCompatActivity {
-
-    TextView forgotPasswordText;
-    TextView signUpTextView;
+public class ResetPassword extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_reset_password);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        forgotPasswordText = findViewById(R.id.forgot_password);
-        signUpTextView = findViewById(R.id.signup_text);
-
-        forgotPasswordText.setOnClickListener(v -> {
-            forgotPassword();
-        });
-
-        signUpTextView.setOnClickListener(v -> {
-            signUp();
-        });
-    }
-
-    private void forgotPassword() {
-        startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
-    }
-
-    private void signUp() {
-        startActivity(new Intent(this, SignupActivity.class));
     }
 }
